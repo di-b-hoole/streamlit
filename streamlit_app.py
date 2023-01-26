@@ -21,12 +21,12 @@ query = f'SELECT * FROM "{sheet_url}"'
 # Print results.
 for row in cursor.execute(query):
     st.write(row)
-    #st.write(f"{row.Client} has a :{row.Value}:")
+    st.write(f"{row[0]} has a :{row[1]}:")
 
 query = (
     f'UPDATE "{sheet_url}"'
-    "SET Client = 'Brydon'"
-    "WHERE Client = 'Bravo'"
+    " SET Client = 'Brydon'"
+    " WHERE Client = 'Bravo'"
 )
 
 st.write(query)
