@@ -14,6 +14,8 @@ def run_query(query):
 sheet_url = st.secrets["public_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
+query = f'SELECT * FROM "{sheet_url}"'
+
 for row in cursor.execute(query):
     st.write(row)
 #sheet_url = st.secrets["public_gsheets_url"]
