@@ -30,3 +30,5 @@ query = (
 )
 
 st.write(query)
+
+st.button("Press Here", key=None, help=None, on_click=run_query(query), args=None, kwargs=None, *, type="secondary", disabled=False)
