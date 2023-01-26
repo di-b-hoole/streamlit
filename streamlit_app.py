@@ -17,8 +17,8 @@ if __name__ == "__main__":
 
     SQL = """
     SELECT *
-    FROM "{sheet_url}"
-    """.format(sheet_url = sheet_url)
+    FROM "https://docs.google.com/spreadsheets/d/1l8TDEJLFmI-pYekile_iCGWizUa2fReeFlkpKJ9Zgw4/edit#gid=0"
+    """#.format(sheet_url = sheet_url)
     
     for row in cursor.execute(SQL):
         print(row)
