@@ -20,7 +20,8 @@ query = f'SELECT * FROM "{sheet_url}"'
 
 # Print results.
 for row in cursor.execute(query):
-    st.write(f"{row.Client} has a :{row.Value}:")
+    st.write(row)
+    #st.write(f"{row.Client} has a :{row.Value}:")
 
 query = (
     f'UPDATE "{sheet_url}"'
