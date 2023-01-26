@@ -1,3 +1,4 @@
 pyparsing
 gsheetsdb
 shillelagh
+shillelagh[datasetteapi]
