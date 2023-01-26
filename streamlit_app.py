@@ -2,11 +2,13 @@ import streamlit as st
 #from gsheetsdb import connect
 from shillelagh.backends.apsw.db import connect
 
-# Create a connection object.
-connection = connect(":memory:")
-cursor = connection.cursor()
 
 sheet_url = st.secrets["public_gsheets_url"]
+
+# Create a connection object.
+connection = connect(f'{sheet_url}')
+cursor = connection.cursor()
+
 
 query = f'SELECT * FROM "{sheet_url}"'
 for row in cursor.execute(query):
