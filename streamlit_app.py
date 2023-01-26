@@ -3,16 +3,36 @@ import streamlit as st
 from shillelagh.backends.apsw.db import connect
 
 
+"""
+A simple example showing the GSheets adapter.
+"""
+from shillelagh.backends.apsw.db import connect
+
 sheet_url = st.secrets["public_gsheets_url"]
+st.write(sheet_url)
 
-# Create a connection object.
-connection = connect(f'{sheet_url}')
-cursor = connection.cursor()
+if __name__ == "__main__":
+    connection = connect(":memory:")
+    cursor = connection.cursor()
 
+    SQL = """
+    SELECT *
+    FROM "{sheet_url}"
+    """.format(sheet_url = sheet_url)
+    
+    for row in cursor.execute(SQL):
+        print(row)
 
-query = f'SELECT * FROM "{sheet_url}"'
-for row in cursor.execute(query):
-    print(row)
+#sheet_url = st.secrets["public_gsheets_url"]
+#
+## Create a connection object.
+#connection = connect(f'{sheet_url}')
+#cursor = connection.cursor()
+#
+#
+#query = f'SELECT * FROM "{sheet_url}"'
+#for row in cursor.execute(query):
+#    print(row)
 
 
 
