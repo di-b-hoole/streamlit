@@ -6,6 +6,8 @@ from shillelagh.backends.apsw.db import connect
 connection = connect(":memory:")
 cursor = connection.cursor()
 
+sheet_url = st.secrets["public_gsheets_url"]
+
 query = f'SELECT * FROM "{sheet_url}"'
 for row in cursor.execute(query):
     print(row)
